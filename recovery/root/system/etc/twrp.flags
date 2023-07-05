@@ -1,0 +1,28 @@
+# mount point    fstype    device                device2               flags
+/system_root     ext4      /dev/block/mapper/system                    flags=backup=0;removable
+/system_ext      ext4      /dev/block/mapper/system_ext                flags=backup=0;removable
+/vendor          ext4      /dev/block/mapper/vendor                    flags=backup=0;removable
+/product         ext4      /dev/block/mapper/product                   flags=backup=0;removable
+
+/metadata        ext4      /dev/block/bootdevice/by-name/metadata      flags=display="Metadata"
+/data            ext4      /dev/block/bootdevice/by-name/userdata      fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
+
+/storage         f2fs      /data/media/0                               flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
+/boot            emmc      /dev/block/bootdevice/by-name/boot          flags=slotselect
+/vendor_boot     emmc      /dev/block/bootdevice/by-name/vendor_boot   flags=slotselect
+/dtbo            emmc      /dev/block/bootdevice/by-name/dtbo          flags=slotselect
+/firmware        vfat      /dev/block/bootdevice/by-name/modem         flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro
+/misc            emmc      /dev/block/bootdevice/by-name/misc
+/modem           emmc      /dev/block/bootdevice/by-name/modem         flags=slotselect;backup=1;display="Modem"
+/bluetooth       emmc      /dev/block/bootdevice/by-name/bluetooth     flags=slotselect;backup=1;subpartitionof=/modem
+/dsp             emmc      /dev/block/bootdevice/by-name/dsp           flags=slotselect;backup=1;subpartitionof=/modem
+/efs1            emmc      /dev/block/bootdevice/by-name/modemst1      flags=backup=1;display="EFS"
+/efs2            emmc      /dev/block/bootdevice/by-name/modemst2      flags=backup=1;subpartitionof=/efs1
+/efsc            emmc      /dev/block/bootdevice/by-name/fsc           flags=backup=1;subpartitionof=/efs1
+/efsg            emmc      /dev/block/bootdevice/by-name/fsg           flags=backup=1;subpartitionof=/efs1
+/vbmeta          emmc      /dev/block/bootdevice/by-name/vbmeta        flags=backup=1;display="VBMeta";flashimg
+/vbmeta_system   emmc      /dev/block/bootdevice/by-name/vbmeta_system flags=backup=1;display="VBMeta System";flashimg
+
+# Removable storage
+/usbstorage      vfat    /dev/block/sdg1  /dev/block/sdg               flags=fsflags=utf8;display="USB Storage";storage;wipeingui;removable
+
