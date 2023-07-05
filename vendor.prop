@@ -1,7 +1,5 @@
 # General
 ro.display.series=OnePlus 9RT
-ro.product.board=laihana
-ro.board.platform=laihana
 
 # Storage
 external_storage.projid.enabled=1
