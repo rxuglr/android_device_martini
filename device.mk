@@ -72,7 +72,7 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(COMMON_PATH)
+    $(LOCAL_PATH)
 
 # Copy modules for depmod
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(COMMON_PATH)/recovery/root/vendor/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules)
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(LOCAL_PATH)/recovery/root/vendor/lib/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules)
